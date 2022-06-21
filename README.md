@@ -1,24 +1,71 @@
-# README
+#テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type    | Options     |
+|------------------- | ------- | ----------- |
+| email              | string  | null: false |
+| encrypted_password | string  | null: false |
+| nickname           | string  | null: false |
+| last_name          | string  | null: false |
+| first_name         | string  | null: false |
+| last_kana_name     | string  | null: false |
+| first_kana_name    | string  | null: false |
+| birth_year         | integer | null: false |
+| birth_month        | integer | null: false |
+| birth_day          | integer | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has many items
+- has many comments
+- has one delivery 
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| item      | string     | null: false                    |
+| price     | integer    | null: false                    |
+| explain   | text       | null: false                    |
+| category  | string     | null: false                    |
+| condition | string     | null: false                    |
+| postage   | string     | null: false                    |
+| send_area | string     | null: false                    |
+| send_day  | string     | null: false                    |
+| user      | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has many comments
+- has one delivery
+- belongs_to user
 
-* Services (job queues, cache servers, search engines, etc.)
+## deliveries テーブル
 
-* Deployment instructions
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| postal_code    | integer    | null: false                    |
+| prefecture     | string     | null: false                    |
+| municipalities | string     | null: false                    |
+| address        | string     | null: false                    |
+| building       | string     | null: true                     |
+| phone_number   | integer    | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to user
+- belongs_to item
+
+## comments テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to user
+- belongs_to item
