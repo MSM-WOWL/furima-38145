@@ -36,7 +36,7 @@
 ### Association
 
 - has_many :comments
-- has_one :delivery
+- has_one :purchase
 - belongs_to :user
 
 ## deliveries テーブル
