@@ -15,9 +15,9 @@
 
 ### Association
 
-- has many products
-- has many comments
-- has one delivery 
+- has_many :products
+- has_many :comments
+- has_one :delivery 
 
 ## products テーブル
 
@@ -35,9 +35,9 @@
 
 ### Association
 
-- has many comments
-- has one delivery
-- belongs_to user
+- has_many :comments
+- has_one :delivery
+- belongs_to :user
 
 ## deliveries テーブル
 
@@ -53,8 +53,8 @@
 
 ### Association
 
-- belongs_to user
-- belongs_to product
+- belongs_to :user
+- belongs_to :product
 
 ## purchases テーブル
 
@@ -66,9 +66,9 @@
 
 ### Association
 
-- belongs_to user
-- belongs_to product
-- belongs_to delivery
+- belongs_to :user
+- belongs_to :product
+- belongs_to :delivery
 
 ## comments テーブル
 
@@ -80,5 +80,5 @@
 
 ### Association
 
-- belongs_to user
-- belongs_to product
+- belongs_to :user
+- belongs_to :product
