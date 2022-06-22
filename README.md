@@ -11,9 +11,7 @@
 | first_name         | string  | null: false |
 | last_kana_name     | string  | null: false |
 | first_kana_name    | string  | null: false |
-| birth_year         | integer | null: false |
-| birth_month        | integer | null: false |
-| birth_day          | integer | null: false |
+| birth_day          | date    | null: false |
 
 ### Association
 
