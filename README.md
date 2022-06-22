@@ -26,11 +26,11 @@
 | item         | string     | null: false                    |
 | price        | integer    | null: false                    |
 | explain      | text       | null: false                    |
-| category_id  | string     | null: false                    |
-| condition_id | string     | null: false                    |
-| postage_id   | string     | null: false                    |
-| send_area_id | string     | null: false                    |
-| send_day_id  | string     | null: false                    |
+| category_id  | integer    | null: false                    |
+| condition_id | integer    | null: false                    |
+| postage_id   | integer    | null: false                    |
+| send_area_id | integer    | null: false                    |
+| send_day_id  | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
 ### Association
