@@ -16,7 +16,6 @@
 ### Association
 
 - has_many :products
-- has_many :comments
 - has_many :purchases
 - has_one :delivery 
 
