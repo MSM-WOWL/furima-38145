@@ -62,7 +62,7 @@
 
 ### Association
 
-- has_many :deliveries
+- has_one :delivery
 - belongs_to :user
 - belongs_to :product
 
