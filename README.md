@@ -51,7 +51,6 @@
 
 ### Association
 
-- belongs_to :product
 - belongs_to :purchase
 
 ## purchases テーブル
