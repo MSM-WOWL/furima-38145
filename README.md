@@ -17,6 +17,7 @@
 
 - has_many :products
 - has_many :comments
+- has_many :purchases
 - has_one :delivery 
 
 ## products テーブル
@@ -55,6 +56,7 @@
 
 - belongs_to :user
 - belongs_to :product
+- belongs_to :purchase
 
 ## purchases テーブル
 
@@ -65,6 +67,7 @@
 
 ### Association
 
+- has_many :deliveries
 - belongs_to :user
 - belongs_to :product
 
