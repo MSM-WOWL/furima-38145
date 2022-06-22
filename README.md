@@ -17,11 +17,11 @@
 
 ### Association
 
-- has many items
+- has many products
 - has many comments
 - has one delivery 
 
-## items テーブル
+## products テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -49,14 +49,28 @@
 | prefecture     | string     | null: false                    |
 | municipalities | string     | null: false                    |
 | address        | string     | null: false                    |
-| building       | string     | null: true                     |
+| building       | string     |                                |
 | phone_number   | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to user
-- belongs_to item
+- belongs_to product
+
+## purchases テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| product  | references | null: false, foreign_key: true |
+| delivery | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to user
+- belongs_to product
+- belongs_to delivery
 
 ## comments テーブル
 
@@ -64,8 +78,9 @@
 | ------- | ---------- | ------------------------------ |
 | content | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
+| product | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to user
-- belongs_to item
+- belongs_to product
