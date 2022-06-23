@@ -71,10 +71,28 @@ end
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordとpassword_confirmationが不一致では登録できない' do
-        @user.password = '123456'
-        @user.password_confirmation = '1234567'
+        @user.password = '123abc'
+        @user.password_confirmation = '123abcd'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+      end
+      it '英字のみのpasswordは登録できない' do
+        @user.password = 'abcdef'
+        @user.password_confirmation = 'abcdef'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+      it '数字のみのpasswordは登録できない' do
+        @user.password = '123456'
+        @user.password_confirmation = '123456'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+      it '全角文字を含むpasswordは登録できない' do
+        @user.password = 'ａｂｃ123'
+        @user.password_confirmation = 'ａｂｃ123'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
       end
       it 'お名前(苗字)には全角(漢字・ひらがな・カタカナ)での入力でないと登録できない' do
         @user.last_name = 'yamada'
