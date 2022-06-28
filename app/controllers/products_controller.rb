@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!, expect: :index
+
+  def index
+  end
 
   def new
     @product = Product.new
