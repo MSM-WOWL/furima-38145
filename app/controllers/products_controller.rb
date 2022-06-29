@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit]
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.order("created_at DESC")
@@ -33,6 +33,14 @@ class ProductsController < ApplicationController
       redirect_to product_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @product.user.id == current_user.id
+      if @product.destroy
+        redirect_to root_path
+      end
     end
   end
 
