@@ -26,7 +26,8 @@ class ProductsController < ApplicationController
     unless @product.user.id == current_user.id
       redirect_to action: :index
     end
-    if @product.purchase.id.present?
+    if @product.user.id == current_user.id
+      @product.purchase.id.present?
       redirect_to action: :index
     end
   end
