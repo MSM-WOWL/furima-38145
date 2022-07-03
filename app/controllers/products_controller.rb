@@ -23,11 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless @product.user.id == current_user.id
-      redirect_to action: :index
-    end
-    if @product.user.id == current_user.id
-      @product.purchase.id.present?
+    if @product.user.id != current_user.id || @product.purchase.present?
       redirect_to action: :index
     end
   end
