@@ -7,7 +7,5 @@ FactoryBot.define do
     building {"ランドマークタワー8743号室"}
     phone_number {"08012345678"}
     token {"tok_abcdefghijk00000000000000000"}
-    association :user
-    association :product
   end
 end
